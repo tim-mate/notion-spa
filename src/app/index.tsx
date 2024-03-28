@@ -1,7 +1,10 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { App } from "./ui/App";
+import { Provider } from "react-redux";
+
+import { store } from "./model";
+import { App } from "./ui";
 import { Login } from "@/pages/login";
 import { Signup } from "@/pages/signup";
 import { Workspace } from "@/pages/workspace";
@@ -39,8 +42,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
