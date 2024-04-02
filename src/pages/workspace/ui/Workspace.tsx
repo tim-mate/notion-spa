@@ -1,5 +1,11 @@
+import { Sidebar } from "@/widgets/sidebar";
+
 const Workspace = () => {
-  return <h1>Workspace</h1>;
+  return (
+    <>
+      <Sidebar />
+    </>
+  );
 };
 
 export default Workspace;

@@ -5,28 +5,32 @@ import { Provider } from "react-redux";
 
 import { store } from "./model";
 import { App } from "./ui";
-import { Login } from "@/pages/login";
 import { Signup } from "@/pages/signup";
+import { Login } from "@/pages/login";
 import { Workspace } from "@/pages/workspace";
+import { ErrorPage } from "@/pages/error";
+
+import "./styles/index.scss";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/login",
-        element: (
-          <Suspense fallback={"Loading..."}>
-            <Login />
-          </Suspense>
-        ),
-      },
       {
         path: "/signup",
         element: (
           <Suspense fallback={"Loading..."}>
             <Signup />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/login",
+        element: (
+          <Suspense fallback={"Loading..."}>
+            <Login />
           </Suspense>
         ),
       },
@@ -37,6 +41,12 @@ const router = createBrowserRouter([
             <Workspace />
           </Suspense>
         ),
+        children: [
+          {
+            path: ":currentPageId",
+            element: <p>Current page</p>,
+          },
+        ],
       },
     ],
   },

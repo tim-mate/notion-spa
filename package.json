@@ -5,9 +5,7 @@
   "scripts": {
     "start": "webpack serve --env mode=development port=7777",
     "build:dev": "webpack --env mode=development port=7777",
-    "build:prod": "webpack --env mode=production port=7777",
-    "build:mobile": "webpack --env mode=production port=7777",
-    "build:desktop": "webpack --env mode=production port=7777"
+    "build:prod": "webpack --env mode=production port=7777"
   },
   "keywords": [
     "notion",

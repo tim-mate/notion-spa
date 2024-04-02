@@ -87,7 +87,7 @@ export const notionApi = createApi({
       }),
       providesTags: (_, __, id) => [{ type: "Page", id }],
     }),
-    addPage: builder.mutation<Page, void>({
+    addPage: builder.mutation<Page, unknown>({
       query: () => ({
         url: "/pages",
         method: "POST",
@@ -142,3 +142,5 @@ export const notionApi = createApi({
     }),
   }),
 });
+
+export const { useGetPagesQuery, useAddPageMutation } = notionApi;

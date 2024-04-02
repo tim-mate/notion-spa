@@ -12,7 +12,8 @@ interface AuthState {
 
 const initialState: AuthState = {
   user: null,
-  token: null,
+  token:
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjgwNzFhMDlhYmRjZTU1NjE4ZDg3ZSIsImlhdCI6MTcxMDc1NjgxNSwiZXhwIjoxNzEzMzQ4ODE1fQ.3WIWy1YGrtEZn_NWy_cZrqr57RJhvKWL5q6eZWeFwcM",
   isLoggedIn: false,
 };
 

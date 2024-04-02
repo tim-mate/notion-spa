@@ -1,1 +1,1 @@
-export { notionApi } from "./notionApi";
+export * from "./notionApi";
