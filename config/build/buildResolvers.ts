@@ -1,4 +1,5 @@
 import { Configuration } from "webpack";
+import path from "path";
 import { BuildOptions } from "./types/types";
 
 export const buildResolvers = (
@@ -8,6 +9,7 @@ export const buildResolvers = (
     extensions: [".tsx", ".ts", ".js"],
     alias: {
       "@": options.paths.src,
+      "@assets": path.resolve(options.paths.public, "assets"),
     },
   };
 };

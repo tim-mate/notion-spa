@@ -19,9 +19,7 @@ export const PagesList: FC<PagesListProps> = ({ type, headerActionSlot }) => {
 
       <ul>
         {pages?.map((page) => (
-          <li key={page._id}>
-            <PagesListItem page={page} />
-          </li>
+          <PagesListItem page={page} key={page._id} />
         ))}
       </ul>
     </>

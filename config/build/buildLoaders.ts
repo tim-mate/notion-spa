@@ -28,7 +28,7 @@ export const buildLoaders = (options: BuildOptions): ModuleOptions["rules"] => {
   };
 
   const assetLoader = {
-    test: /\.(png|jpg|jpeg|gif)$/i,
+    test: /\.(png|jpg|jpeg|ttf)$/i,
     type: "asset/resource",
   };
 

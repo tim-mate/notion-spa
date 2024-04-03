@@ -1,15 +1,17 @@
 import { PagesList } from "@/entities/page";
 import { AddPageButton } from "@/features/page/add";
 
+import styles from "./PagesNav.module.scss";
+
 export const PagesNav = () => {
   return (
-    <nav>
+    <nav className={styles["pages-nav"]}>
       <ul>
-        <li>
+        <li className={styles["pages-nav__section"]}>
           <PagesList type="favorite" />
         </li>
 
-        <li>
+        <li className={styles["pages-nav__section"]}>
           <PagesList type="private" headerActionSlot={<AddPageButton />} />
         </li>
       </ul>
