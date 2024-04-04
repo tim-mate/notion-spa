@@ -26,7 +26,7 @@ export const PagesList: FC<PagesListProps> = ({ type }) => {
             page={page}
             actionSlot={
               <ShowActionsButton
-                actionsPanel={<PageActionsPanel pageId={page._id} />}
+                actionsPanel={<PageActionsPanel page={page} />}
               />
             }
           />

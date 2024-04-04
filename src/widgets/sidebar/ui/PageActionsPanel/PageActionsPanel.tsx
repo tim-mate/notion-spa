@@ -1,15 +1,23 @@
-import { ID } from "@/shared/types";
+import { Page } from "@/shared/types";
 import { FC } from "react";
+import { UpdateStatusButton } from "@/features/page/updateStatus";
+import { DeletePageButton } from "@/features/page/delete";
+
+import styles from "./PageActionsPanel.module.scss";
 
 interface PageActionsPanelProps {
-  pageId: ID;
+  page: Page;
 }
 
-export const PageActionsPanel: FC<PageActionsPanelProps> = ({ pageId }) => {
+export const PageActionsPanel: FC<PageActionsPanelProps> = ({ page }) => {
   return (
-    <div>
-      <b>{pageId}</b>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit, sed!
-    </div>
+    <ul className={styles["actions-panel"]}>
+      <li>
+        <UpdateStatusButton page={page} />
+      </li>
+      <li>
+        <DeletePageButton page={page} />
+      </li>
+    </ul>
   );
 };
