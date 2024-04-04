@@ -66,7 +66,7 @@ export interface RenamePageDto {
 
 export interface UpdatePageStatusDto {
   id: ID;
-  favorite: string;
+  favorite: boolean;
 }
 
 export interface AddBlockDto {

@@ -143,4 +143,8 @@ export const notionApi = createApi({
   }),
 });
 
-export const { useGetPagesQuery, useAddPageMutation } = notionApi;
+export const {
+  useGetPagesQuery,
+  useAddPageMutation,
+  useUpdatePageStatusMutation,
+} = notionApi;

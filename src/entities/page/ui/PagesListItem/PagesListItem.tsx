@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Page } from "@/shared/types";
 
@@ -6,9 +6,13 @@ import styles from "./PagesListItem.module.scss";
 
 interface PagesListItemProps {
   page: Page;
+  actionSlot: ReactNode;
 }
 
-export const PagesListItem: FC<PagesListItemProps> = ({ page }) => {
+export const PagesListItem: FC<PagesListItemProps> = ({
+  page,
+  actionSlot: ActionSlot,
+}) => {
   const { currentPageId } = useParams();
   const classes =
     currentPageId === page._id
@@ -20,6 +24,8 @@ export const PagesListItem: FC<PagesListItemProps> = ({ page }) => {
       <Link to={`${page._id}`} className={styles["pages-list__link"]}>
         {page.title}
       </Link>
+
+      {ActionSlot}
     </li>
   );
 };

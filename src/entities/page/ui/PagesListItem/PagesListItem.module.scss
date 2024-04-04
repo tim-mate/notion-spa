@@ -1,4 +1,7 @@
 .pages-list__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   min-height: 27px;
   margin: 1px 0px;
   border-radius: 3px;
@@ -18,9 +21,14 @@
     color: var(--sidebar-accent-tx-color);
     background-color: var(--sidebar-accent--bg-color);
   }
+
+  &:hover button {
+    opacity: 1;
+  }
 }
 
 .pages-list__link {
   display: block;
+  flex-grow: 1;
   padding: 2px 10px 2px 5px;
 }
