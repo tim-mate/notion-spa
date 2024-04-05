@@ -1,1 +1,1 @@
-export { DeletePageButton } from "./ui/DeletePageButton";
+export { DeletePageButton } from "./ui/DeletePageButton/DeletePageButton";

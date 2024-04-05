@@ -146,6 +146,7 @@ export const notionApi = createApi({
 export const {
   useGetPagesQuery,
   useAddPageMutation,
+  useRenamePageMutation,
   useUpdatePageStatusMutation,
   useDeletePageMutation,
 } = notionApi;

@@ -1,1 +1,1 @@
-export { UpdateStatusButton } from "./ui/UpdateStatusButton";
+export { UpdateStatusButton } from "./ui/UpdateStatusButton/UpdateStatusButton";
