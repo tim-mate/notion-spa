@@ -1,0 +1,19 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  width: calc(100% - 260px);
+  padding: 0px 10px 0px 12px;
+
+  background-color: #fff;
+}
+.topbar__buttons-list {
+  display: flex;
+  gap: 10px;
+}
