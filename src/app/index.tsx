@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/signup",
+        path: "signup",
         element: (
           <Suspense fallback={"Loading..."}>
             <Signup />
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/login",
+        path: "login",
         element: (
           <Suspense fallback={"Loading..."}>
             <Login />
@@ -35,18 +35,20 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/workspace",
+        path: "workspace",
         element: (
           <Suspense fallback={"Loading..."}>
             <Workspace />
           </Suspense>
         ),
-        children: [
-          {
-            path: ":currentPageId",
-            element: <p>Current page</p>,
-          },
-        ],
+      },
+      {
+        path: "workspace/:currentPageId",
+        element: (
+          <Suspense fallback={"Loading..."}>
+            <Workspace />
+          </Suspense>
+        ),
       },
     ],
   },

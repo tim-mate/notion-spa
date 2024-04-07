@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { useEditor, EditorContent, Editor } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
-
 import { Page } from "@/shared/types";
 import { useRenamePageMutation } from "@/shared/api";
 
@@ -20,11 +19,16 @@ export const PageTitle: FC<PageTitleProps> = ({ page }) => {
       attributes: {
         class: styles["page-title"],
       },
+      handleKeyDown(view, event) {
+        if (event.code === "Escape" || event.code === "Enter") {
+          view.dom.blur();
+        }
+      },
     },
-    onUpdate: ({ editor }) => {
-      const text = editor.getText();
-      if (text.trim() !== "") {
-        renamePage({ id: page._id, title: text.trim() });
+    onBlur: ({ editor }) => {
+      const text = editor.getText().trim();
+      if (text) {
+        renamePage({ id: page._id, title: text });
       }
     },
   });

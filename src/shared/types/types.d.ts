@@ -29,7 +29,7 @@ interface TextStyles {
   strikethrough: boolean;
 }
 
-interface TextBlockPayload extends TextStyles {
+export interface TextBlockPayload extends TextStyles {
   content: string;
 }
 
@@ -43,12 +43,16 @@ interface TableBlockPayload {
   headerColumn: boolean;
 }
 
-type BlockPayload = TextBlockPayload | TableBlockPayload;
+export type BlockPayload<T extends BlockType> = T extends "text"
+  ? TextBlockPayload
+  : T extends "table"
+  ? TableBlockPayload
+  : never;
 
 interface Block {
   _id: ID;
   type: BlockType;
-  payload: BlockPayload;
+  payload: BlockPayload<"text" | "table">;
 }
 
 export interface Page {
@@ -83,5 +87,5 @@ export interface UpdateBlockDto {
   pageId: ID;
   blockId: ID;
   type: BlockType;
-  payload: BlockPayload;
+  payload: BlockPayload<"text" | "table">;
 }

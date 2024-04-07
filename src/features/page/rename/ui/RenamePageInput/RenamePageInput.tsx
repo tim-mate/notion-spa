@@ -12,7 +12,10 @@ export const RenamePageInput: FC<RenamePageInputProps> = ({ page }) => {
 
   const handleInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setTitle(e.target.value);
-    renamePage({ id: page._id, title: e.target.value });
+
+    if (e.target.value.trim() !== "") {
+      renamePage({ id: page._id, title: e.target.value });
+    }
   };
 
   return (

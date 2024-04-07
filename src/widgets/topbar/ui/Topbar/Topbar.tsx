@@ -1,34 +1,33 @@
-import { useParams } from "react-router-dom";
-import { useGetPageQuery } from "@/shared/api";
+import { FC } from "react";
+import { Page } from "@/shared/types";
 import { UpdateStatusButton } from "@/features/page/updateStatus";
 import { ShowActionsButton } from "@/features/page/show-actions";
 import { PageActionsPanel } from "../PageActionsPanel/PageActionsPanel";
 
 import styles from "./Topbar.module.scss";
 
-export const Topbar = () => {
-  const { currentPageId } = useParams();
-  const { data: page } = useGetPageQuery(currentPageId!);
+interface TopbarProps {
+  page: Page;
+}
 
+export const Topbar: FC<TopbarProps> = ({ page }) => {
   return (
     <header className={styles["topbar"]}>
-      {page && (
-        <>
-          <span>{page?.title}</span>
+      <>
+        <span>{page?.title}</span>
 
-          <ul className={styles["topbar__buttons-list"]}>
-            <li>
-              <UpdateStatusButton page={page!} />
-            </li>
+        <ul className={styles["topbar__buttons-list"]}>
+          <li>
+            <UpdateStatusButton page={page!} />
+          </li>
 
-            <li>
-              <ShowActionsButton
-                actionsPanel={<PageActionsPanel page={page!} />}
-              />
-            </li>
-          </ul>
-        </>
-      )}
+          <li>
+            <ShowActionsButton
+              actionsPanel={<PageActionsPanel page={page!} />}
+            />
+          </li>
+        </ul>
+      </>
     </header>
   );
 };

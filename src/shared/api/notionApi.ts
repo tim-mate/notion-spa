@@ -29,7 +29,8 @@ interface RefreshUserResponse {
 export const notionApi = createApi({
   reducerPath: "notionApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://notion-api-4k8q.onrender.com/api/v1",
+    // baseUrl: "https://notion-api-4k8q.onrender.com/api/v1",
+    baseUrl: "http://localhost:5000/api/v1",
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).auth.token;
       if (token) {
@@ -150,4 +151,6 @@ export const {
   useRenamePageMutation,
   useUpdatePageStatusMutation,
   useDeletePageMutation,
+  useAddBlockMutation,
+  useUpdateBlockMutation,
 } = notionApi;

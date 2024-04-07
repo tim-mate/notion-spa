@@ -21,7 +21,10 @@ export const PagesListItem: FC<PagesListItemProps> = ({
 
   return (
     <li className={classes}>
-      <Link to={`${page._id}`} className={styles["pages-list__link"]}>
+      <Link
+        to={`/workspace/${page._id}`}
+        className={styles["pages-list__link"]}
+      >
         {page.title}
       </Link>
 

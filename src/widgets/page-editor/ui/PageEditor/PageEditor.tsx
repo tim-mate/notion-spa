@@ -1,16 +1,19 @@
-import { useParams } from "react-router-dom";
-import { useGetPageQuery } from "@/shared/api";
 import { PageTitle } from "../PageTitle/PageTitle";
+import { PageContent } from "../PageContent/PageContent";
 
 import styles from "./PageEditor.module.scss";
+import { FC } from "react";
+import { Page } from "@/shared/types";
 
-export const PageEditor = () => {
-  const { currentPageId } = useParams();
-  const { data: page } = useGetPageQuery(currentPageId!);
+interface PageEditorProps {
+  page: Page;
+}
 
+export const PageEditor: FC<PageEditorProps> = ({ page }) => {
   return (
     <main className={styles["page-editor"]}>
-      {page && <PageTitle page={page} />}
+      <PageTitle page={page} key={page.title} />
+      <PageContent page={page} />
     </main>
   );
 };
