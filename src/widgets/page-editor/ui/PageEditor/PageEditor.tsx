@@ -1,9 +1,8 @@
-import { PageTitle } from "../PageTitle/PageTitle";
-import { PageContent } from "../PageContent/PageContent";
-
-import styles from "./PageEditor.module.scss";
 import { FC } from "react";
 import { Page } from "@/shared/types";
+import { PageTitle } from "../PageTitle/PageTitle";
+import { PageContent } from "../PageContent/PageContent";
+import styles from "./PageEditor.module.scss";
 
 interface PageEditorProps {
   page: Page;
@@ -12,7 +11,7 @@ interface PageEditorProps {
 export const PageEditor: FC<PageEditorProps> = ({ page }) => {
   return (
     <main className={styles["page-editor"]}>
-      <PageTitle page={page} key={page.title} />
+      <PageTitle page={page} />
       <PageContent page={page} />
     </main>
   );

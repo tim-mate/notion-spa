@@ -1,43 +1,38 @@
-import { FC, useRef } from "react";
+import { FC, useRef, useEffect } from "react";
 import { useEditor, EditorContent, BubbleMenu } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import TextStyle from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import { Color } from "@tiptap/extension-color";
 
+import { calculatePageContent } from "../../lib/calculatePageContent";
+import { Page, TextBlockPayload, Block } from "@/shared/types";
 import { useUpdateBlockMutation } from "@/shared/api";
-import { Page, BlockPayload, Block } from "@/shared/types";
 import { Toolbar } from "@/features/block/text/style";
-
 import styles from "./PageContent.module.scss";
 
 interface PageContentProps {
   page: Page;
 }
 
+const extensions = [StarterKit, TextStyle, Underline, Color];
+
 export const PageContent: FC<PageContentProps> = ({ page }) => {
   const [updateBlock] = useUpdateBlockMutation();
-  const blockRef = useRef<Block>();
-  const content = page.blocks.reduce((markup: string, block: Block) => {
-    if (block.type === "text") {
-      blockRef.current = block;
-      const payload = block.payload as BlockPayload<"text">;
-      return (markup += payload.content);
-    }
-
-    return markup;
-  }, "");
+  const blockRef = useRef<Block>(
+    page.blocks.find((block) => block.type === "text") as Block
+  );
 
   const editor = useEditor({
-    extensions: [StarterKit, TextStyle, Underline, Color],
-    content: content === "" ? "Start writing..." : content,
+    extensions,
+    content: calculatePageContent(blockRef.current),
     editorProps: {
       attributes: {
         class: styles["page-content"],
       },
     },
     onUpdate: ({ editor }) => {
-      const payload = { content: editor.getHTML() } as BlockPayload<"text">;
+      const payload = { content: editor.getHTML() } as TextBlockPayload;
 
       if (blockRef.current) {
         updateBlock({
@@ -49,6 +44,12 @@ export const PageContent: FC<PageContentProps> = ({ page }) => {
       }
     },
   });
+
+  useEffect(() => {
+    if (editor) {
+      editor.commands.focus("end");
+    }
+  }, [editor]);
 
   return (
     <>

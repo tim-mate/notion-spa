@@ -1,4 +1,16 @@
 .workspace {
+  min-height: 100vh;
+}
+
+.image-container {
   display: flex;
-  height: 100vw;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10vw;
+  padding-left: 5vw;
+}
+
+.image {
+  max-width: calc(55vw);
+  width: 800px;
 }

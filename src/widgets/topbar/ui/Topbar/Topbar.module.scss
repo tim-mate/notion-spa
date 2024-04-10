@@ -2,18 +2,39 @@
   position: fixed;
   top: 0;
   right: 0;
+  left: var(--sidebar-width);
 
   display: flex;
-  flex-grow: 1;
   justify-content: space-between;
   align-items: center;
   height: 45px;
-  width: calc(100% - 260px);
-  padding: 0px 10px 0px 12px;
+  min-width: 65vw;
+  padding: 0px 12px;
+  z-index: 1;
 
   background-color: #fff;
-}
-.topbar__buttons-list {
-  display: flex;
-  gap: 10px;
+
+  &__actions-list {
+    display: flex;
+    gap: 10px;
+  }
+
+  &__title {
+    font-size: 14px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33px;
+    height: 28px;
+    border-radius: 4px;
+
+    background-color: transparent;
+  }
+
+  button:hover {
+    background-color: var(--accent-bg-color);
+  }
 }

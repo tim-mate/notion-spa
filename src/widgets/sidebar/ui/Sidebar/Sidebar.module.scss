@@ -1,14 +1,13 @@
 .sidebar {
-  // position: fixed;
-  // top: 0;
-  // left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 
-  // width: 260px;
-  min-width: 220px;
-  // max-width: 480px;
+  width: var(--sidebar-width);
   height: 100%;
   padding: 4px;
 
   color: var(--sidebar-tx-color);
   background-color: var(--sidebar-bg-color);
+  z-index: 1;
 }

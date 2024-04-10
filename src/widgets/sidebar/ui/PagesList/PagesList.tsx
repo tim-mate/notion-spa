@@ -5,6 +5,7 @@ import { PagesListItem } from "@/entities/page";
 import { AddPageButton } from "@/features/page/add";
 import { ShowActionsButton } from "@/features/page/show-actions";
 import { PageActionsPanel } from "../PageActionsPanel/PageActionsPanel";
+import Dots from "@assets/icons/sidebar-dots.svg";
 
 interface PagesListProps {
   type: "private" | "favorite";
@@ -27,7 +28,10 @@ export const PagesList: FC<PagesListProps> = ({ type }) => {
             actionSlot={
               <ShowActionsButton
                 actionsPanel={<PageActionsPanel page={page} />}
-              />
+                location="sidebar"
+              >
+                <Dots />
+              </ShowActionsButton>
             }
           />
         ))}

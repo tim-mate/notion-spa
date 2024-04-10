@@ -2,6 +2,8 @@ import { FC } from "react";
 import { Editor } from "@tiptap/react";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 
+import styles from "./Toolbar.module.scss";
+
 interface ToolbarProps {
   editor: Editor;
 }
@@ -16,12 +18,30 @@ export const Toolbar: FC<ToolbarProps> = ({ editor }) => {
     editor.chain().focus().setColor(color).run();
 
   return (
-    <div>
-      <button onClick={handleBold}>Bold</button>
-      <button onClick={handleItalic}>Italic</button>
-      <button onClick={handleStrike}>Strike</button>
-      <button onClick={handleUnderline}>Underline</button>
-      <ColorPicker onChange={handleTextColor} />
-    </div>
+    <ul className={styles.toolbar}>
+      <li className={styles["toolbar__item"]}>
+        <button onClick={handleBold} className={styles.bold}>
+          B
+        </button>
+      </li>
+      <li className={styles["toolbar__item"]}>
+        <button onClick={handleItalic} className={styles.italic}>
+          i
+        </button>
+      </li>
+      <li className={styles["toolbar__item"]}>
+        <button onClick={handleStrike} className={styles.striked}>
+          U
+        </button>
+      </li>
+      <li className={styles["toolbar__item"]}>
+        <button onClick={handleUnderline} className={styles.underlined}>
+          S
+        </button>
+      </li>
+      <li className={styles["toolbar__item"]}>
+        <ColorPicker onChange={handleTextColor} />
+      </li>
+    </ul>
   );
 };

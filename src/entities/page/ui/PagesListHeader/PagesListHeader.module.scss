@@ -9,4 +9,13 @@
   font-size: 12px;
   font-weight: 600;
   line-height: 21px;
+
+  button {
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+  }
+
+  &:hover button {
+    opacity: 1;
+  }
 }

@@ -1,0 +1,63 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+
+  font-size: 14px;
+  line-height: 1.2;
+  border-radius: 5px;
+
+  background: #ffffff;
+  box-shadow: rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.1) 0px 3px 6px, rgba(15, 15, 15, 0.2) 0px 9px 24px;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0px 8px;
+    margin-right: 1px;
+
+    color: var(--main-tx-color);
+    background-color: transparent;
+    box-shadow: rgba(55, 53, 47, 0.09) 1px 0px 0px;
+    transition: background 20ms ease-in 0s;
+  }
+
+  button:hover,
+  input:hover {
+    cursor: pointer;
+    background-color: var(--accent-bg-color);
+  }
+
+  input {
+    height: 100%;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    background-color: transparent;
+  }
+}
+
+.toolbar__item {
+  height: 100%;
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+.striked {
+  text-decoration: line-through;
+}
